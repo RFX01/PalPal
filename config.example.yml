@@ -1,0 +1,99 @@
+---
+PalPalSettings:
+  # RCON Port, set to the same port as set in PalWorldSettings
+  RconPort: 25575
+  # RCON Password, set to the same password as set in PalWorldSettings
+  RconPassword: "s00pers3cure!!"
+  # Interval between watchdog checks in seconds (don't change unless you know what you're doing)
+  WatchdogInterval: 5
+  # PalServer install path, if you installed it in a different path you will need to change this
+  PalServerPath: "/home/steam/Steam/steamapps/common/PalServer"
+  # If set to true, a message will be sent when a player joins
+  JoinBroadcast: true
+  # If set to true, a message will be sent when a player leaves
+  LeaveBroadcast: true
+  # Backup configuration
+  AutoBackup:
+    # If set to true, automatic backup will be enabled
+    Enable: true
+    # If set to true, messages will be sent to inform players that a backup is running
+    Broadcast: true
+    # How many minutes need to elapse before another backup is created
+    IntervalMinutes: 30
+    # How many days backups should be kept before they are automatically deleted
+    RetentionDays: 14
+    # Where backups should be stored
+    BackupPath: "/private/backup/palserver"
+  # Whitelist Configuration
+  Whitelist:
+    # If set to true, non-whitelisted players will automatically be kicked
+    Enable: false
+    # SteamIDs of players allowed on this server, anyone not in this list will be automatically kicked
+    SteamIDs:
+      - "12345678912345678"
+      - "42069420694206969"
+
+# PalServer Configuration, see https://tech.palworldgame.com/optimize-game-balance
+PalWorldSettings:
+  Difficulty: "None"
+  DayTimeSpeedRate: 1.000000
+  NightTimeSpeedRate: 1.000000
+  ExpRate: 1.000000
+  PalCaptureRate: 1.000000
+  PalSpawnNumRate: 1.000000
+  PalDamageRateAttack: 1.000000
+  PalDamageRateDefense: 1.000000
+  PlayerDamageRateAttack: 1.000000
+  PlayerDamageRateDefense: 1.000000
+  PlayerStomachDecreaceRate: 1.000000
+  PlayerStaminaDecreaceRate: 1.000000
+  PlayerAutoHPRegeneRate: 1.000000
+  PlayerAutoHpRegeneRateInSleep: 1.000000
+  PalStomachDecreaceRate: 1.000000
+  PalStaminaDecreaceRate: 1.000000
+  PalAutoHPRegeneRate: 1.000000
+  PalAutoHpRegeneRateInSleep: 1.000000
+  BuildObjectDamageRate: 1.000000
+  BuildObjectDeteriorationDamageRate: 1.000000
+  CollectionDropRate: 1.000000
+  CollectionObjectHpRate: 1.000000
+  CollectionObjectRespawnSpeedRate: 1.000000
+  EnemyDropItemRate: 1.000000
+  DeathPenalty: All
+  bEnablePlayerToPlayerDamage: "False"
+  bEnableFriendlyFire: "False"
+  bEnableInvaderEnemy: "True"
+  bActiveUNKO: "False"
+  bEnableAimAssistPad: "True"
+  bEnableAimAssistKeyboard: "False"
+  DropItemMaxNum: 3000
+  DropItemMaxNum_UNKO: 100
+  BaseCampMaxNum: 128
+  BaseCampWorkerMaxNum: 15
+  DropItemAliveMaxHours: 1.000000
+  bAutoResetGuildNoOnlinePlayers: "False"
+  AutoResetGuildTimeNoOnlinePlayers: 72.000000
+  GuildPlayerMaxNum: 20
+  PalEggDefaultHatchingTime: 72.000000
+  WorkSpeedRate: 1.000000
+  bIsMultiplay: "False"
+  bIsPvP: "False"
+  bCanPickupOtherGuildDeathPenaltyDrop: "False"
+  bEnableNonLoginPenalty: "True"
+  bEnableFastTravel: "True"
+  bIsStartLocationSelectByMap: "True"
+  bExistPlayerAfterLogout: "False"
+  bEnableDefenseOtherGuildPlayer: "False"
+  CoopPlayerMaxNum: 4
+  ServerPlayerMaxNum: 32
+  ServerName: "\"PalPal Managed Server\""
+  ServerDescription: "\"\""
+  AdminPassword: "\"s00pers3cure!!\"" # PLEASE CHANGE THIS
+  ServerPassword: "\"\""
+  PublicPort: 8211
+  PublicIP: "\"\""
+  RCONEnabled: "True"
+  RCONPort: 25575
+  Region: "\"\""
+  bUseAuth: "True"
+  BanListURL: "\"https://api.palworldgame.com/api/banlist.txt\""

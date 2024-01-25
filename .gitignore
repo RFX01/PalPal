@@ -1,0 +1,4 @@
+config.yml
+Gemfile.lock
+.vscode
+watchdog.log

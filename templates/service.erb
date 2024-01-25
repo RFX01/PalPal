@@ -1,0 +1,16 @@
+[Unit]
+Description=<%= description %>
+Requires=network.target
+
+[Service]
+Type=simple
+User=<%= unit_user %>
+Group=<%= unit_user %>
+WorkingDirectory=<%= work_dir %>
+ExecStart=<%= exec_start %>
+TimeoutSec=30
+RestartSec=15s
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
