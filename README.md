@@ -8,7 +8,7 @@ This is a tool to help manage a Palworld Dedicated Server.
 - Automatic World Backup
 - Player Whitelist
 
-**WARNING:** If the PalPal Watchdog stops running for any reason, the whitelist is no longer enforced. Additionally, if a non-whitelisted player joins while the Watchdog isn't running, they will not be kicked retroactively.
+**WARNING:** If the PalPal Watchdog stops running for any reason, the whitelist is no longer enforced.
 
 If a player is kicked as a result of not being whitelisted, the game client will softlock on the loading screen due to a bug.
 

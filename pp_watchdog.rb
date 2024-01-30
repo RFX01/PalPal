@@ -111,7 +111,13 @@ loop do
 
         # Handle Whitelist
         if config["PalPalSettings"]["Whitelist"]["Enable"]
-            players_joined.each do |player|
+            compare_list = players_joined
+            if config["PalPalSettings"]["Whitelist"]["RetroactiveKick"]
+                # Check all players against whitelist instead of only recently joined players
+                compare_list = new_player_list
+            end
+
+            compare_list.each do |player|
                 is_whitelisted = false
                 config["PalPalSettings"]["Whitelist"]["SteamIDs"].each do |steamid|
                     if player["steamid"] == steamid

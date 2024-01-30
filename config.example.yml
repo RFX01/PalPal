@@ -28,6 +28,10 @@ PalPalSettings:
   Whitelist:
     # If set to true, non-whitelisted players will automatically be kicked
     Enable: false
+    # If set to true, non-whitelisted players will be kicked even if they joined before PalPal was started
+    # WARNING: There have been instances where PalServer RCON returned corrupted Steam IDs, leading whitelisted
+    #          players to be kicked. Enable at your own risk.
+    RetroactiveKick: false
     # SteamIDs of players allowed on this server, anyone not in this list will be automatically kicked
     SteamIDs:
       - "12345678912345678"
