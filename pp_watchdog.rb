@@ -51,7 +51,9 @@ player_list = nil
 rcon_exec("Broadcast PalPal\xA0\x80is\xA0\x80now\xA0\x80watching\xA0\x80this\xA0\x80Server.")
 loop do
     # Wait a bit so we don't blast the server
-    sleep config["PalPalSettings"]["WatchdogInterval"]
+    unless player_list.nil?
+        sleep config["PalPalSettings"]["WatchdogInterval"]
+    end
 
     # Get player list
     player_response = rcon_exec("ShowPlayers")
@@ -60,7 +62,7 @@ loop do
         next
     end
 
-    new_player_list = CSV.parse(player_response.body, headers: true)
+    new_player_list = CSV.parse(player_response.body, headers: true, encoding: "UTF-8")
     if player_list.nil?
         # Handle first loop run
         player_list = new_player_list
@@ -119,9 +121,18 @@ loop do
 
             compare_list.each do |player|
                 is_whitelisted = false
+                # Check Steam IDs
                 config["PalPalSettings"]["Whitelist"]["SteamIDs"].each do |steamid|
                     if player["steamid"] == steamid
                         is_whitelisted = true
+                    end
+                end
+                # Check Player UIDs (if UID list is defined)
+                if defined? config["PalPalSettings"]["Whitelist"]["PlayerUIDs"]
+                    config["PalPalSettings"]["Whitelist"]["PlayerUIDs"].each do |playeruid|
+                        if player["playeruid"] == playeruid
+                            is_whitelisted = true
+                        end
                     end
                 end
                 # Kick player if they're not whitelisted

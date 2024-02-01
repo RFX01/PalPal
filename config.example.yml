@@ -36,6 +36,11 @@ PalPalSettings:
     SteamIDs:
       - "12345678912345678"
       - "42069420694206969"
+    # PlayerUIDs of players allowed on this server. This is essentially a fallback to work around the Steam ID
+    # corruption bug. Players do not need to be on both of these lists, but it is recommended
+    # as it should result in improved reliability of the whitelist feature.
+    PlayerUIDs:
+      - "1234567890"
 
 # PalServer Configuration, see https://tech.palworldgame.com/optimize-game-balance
 PalWorldSettings:

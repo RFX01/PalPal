@@ -1,6 +1,8 @@
 # PalPal - PalServer Helper Tool
 This is a tool to help manage a Palworld Dedicated Server.
 
+**BEWARE OF SCAMMERS. If anyone claims to be selling a special version of PalPal that I made, they are lying to you. I did not provide any significantly modified versions of PalPal to anyone. All significant changes I make are published in this repository.** This notice is not related to selling the software in general. Please refer to the [License](LICENSE) for more information.
+
 ## Features
 - Configure Server using YAML File instead of single line INI
 - Automated Systemd Unit Setup
@@ -8,9 +10,9 @@ This is a tool to help manage a Palworld Dedicated Server.
 - Automatic World Backup
 - Player Whitelist
 
-**WARNING:** If the PalPal Watchdog stops running for any reason, the whitelist is no longer enforced.
+**WARNING:** If the PalPal Watchdog stops running for any reason, the whitelist is no longer enforced. Additonally, you may want to use both the Steam ID and Player UID whitelists at the same time to work around some bugs in PalServer that could lead to unintentional kicks.
 
-If a player is kicked as a result of not being whitelisted, the game client will softlock on the loading screen due to a bug.
+If a player is kicked as a result of not being whitelisted right as they join, the game client will softlock on the loading screen due to a bug.
 
 ## Setup
 This guide assumes you already have a PalServer installed via SteamCMD. If you haven't done that yet, please do so.
