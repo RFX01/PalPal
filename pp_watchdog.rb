@@ -39,7 +39,7 @@ $logger.info("Loaded PalPal configuration.")
 
 # Initialize RCON
 $logger.info("Initializing RCON connection.")
-$client = Rcon::Client.new(host: "127.0.0.1", port: 25575, password: config["PalPalSettings"]["RconPassword"])
+$client = Rcon::Client.new(host: "127.0.0.1", port: config["PalPalSettings"]["RconPort"], password: config["PalPalSettings"]["RconPassword"])
 while !rcon_reconnect
     sleep config["PalPalSettings"]["WatchdogInterval"]
 end
