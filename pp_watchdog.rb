@@ -5,9 +5,9 @@ require 'csv'
 require 'fileutils'
 
 # RCON Call
-def rcon_exec(command)
+def rcon_exec(command, log_command = true)
     begin
-        $logger.info("Sending command: '#{command}'")
+        $logger.info("Sending command: '#{command}'") if log_command
         return $client.execute(command)
     rescue
         $logger.error("Failed to execute RCON Command: '#{command}'")
@@ -56,7 +56,7 @@ loop do
     end
 
     # Get player list
-    player_response = rcon_exec("ShowPlayers")
+    player_response = rcon_exec("ShowPlayers", false)
     if player_response.nil?
         $logger.warn("Skipping watchdog run due to RCON connection failure.")
         next
