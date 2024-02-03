@@ -7,7 +7,12 @@ require 'fileutils'
 # RCON Call
 def rcon_exec(command)
     begin
-        $logger.info("Sending command: '#{command}'")
+        if command == "ShowPlayers"
+            $logger.debug("Sending command: '#{command}'")
+        else
+            $logger.info("Sending command: '#{command}'")
+        end
+        
         return $client.execute(command)
     rescue
         $logger.error("Failed to execute RCON Command: '#{command}'")
