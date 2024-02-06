@@ -12,6 +12,8 @@ PalPalSettings:
   JoinBroadcast: true
   # If set to true, a message will be sent when a player leaves
   LeaveBroadcast: true
+  # If set to true, broadcast player list when a player joins or leaves
+  PlayerListBroadcast: true
   # Backup configuration
   AutoBackup:
     # If set to true, automatic backup will be enabled

@@ -75,6 +75,7 @@ loop do
         # Determine difference between player lists (bit janky this section, maybe refactor at some point)
         players_joined = []
         players_left = []
+        players = "\xA0\x80"
 
         player_list.each do |player|
             present = true
@@ -98,6 +99,9 @@ loop do
             if present
                 players_joined.push(nplayer)
             end
+            # Store players name list
+            players << nplayer["name"]
+            players << "\xA0\x80/\xA0\x80"
         end
 
         # Broadcast join messages
@@ -105,6 +109,10 @@ loop do
             players_joined.each do |jplayer|
                 $logger.info("Detected Player Join: #{jplayer.inspect}")
                 rcon_exec("Broadcast #{jplayer["name"].gsub(" ", "\xA0\x80")}\xA0\x80joined\xA0\x80the\xA0\x80world.")
+                if config["PalPalSettings"]["PlayerListBroadcast"]
+                    rcon_exec("Broadcast Online\xA0\x80players\xA0\x80:")
+                    rcon_exec("Broadcast #{players}")
+                end
             end
         end
 
@@ -113,6 +121,10 @@ loop do
             players_left.each do |lplayer|
                 $logger.info("Detected Player Leave: #{lplayer.inspect}")
                 rcon_exec("Broadcast #{lplayer["name"].gsub(" ", "\xA0\x80")}\xA0\x80left\xA0\x80the\xA0\x80world.")
+                if config["PalPalSettings"]["PlayerListBroadcast"]
+                    rcon_exec("Broadcast Online\xA0\x80players\xA0\x80:")
+                    rcon_exec("Broadcast #{players}")
+                end
             end
         end
 
